@@ -1,268 +1,371 @@
-
-
 <html>
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="description" content="Tennis Teams Shuffle">
-  <meta name="keywords" content="Tennis, Team, Random, Shuffle">
-  <meta name="author" content="Bharath Maddineni">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <meta charset="UTF-8">
+    <meta name="description" content="Tennis Teams Shuffle">
+    <meta name="keywords" content="Tennis, Team, Random, Shuffle">
+    <meta name="author" content="Bharath Maddineni">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<!--
+
 <style>
-body {background-color: white;   font-family: "SF Pro Text"; color: #333;
-  font-size: 160%;}
-h1   {color: blue;}
+    t.ex1 {
+        margin-left: 10px;
+        color: hsl(130, 98%, 38%)
+    }
 
-<--!label    {color: red;}
+    t.ex2 {
+        margin-left: 10px;
+        color: hsl(7, 98%, 38%)
+    }
 
-input    {font-family: "SF Pro Text"; color: #333; font-size: 160%;}
+    t.ex3 {
+        margin-left: 10px;
+        color: hsl(236, 97%, 45%)
+    }
 
+    t.ex4 {
+        margin-left: 10px;
+        color: hsl(300, 93%, 48%)
+    }
 
+    t.ex5 {
+        margin-left: 10px;
+        color: hsla(106, 98%, 49%, 0.959)
+    }
+
+    t.ex6 {
+        margin-left: 10px;
+        color: hsl(350, 94%, 51%)
+    }
+
+    t.ex7 {
+        margin-left: 10px;
+        color: hsl(234, 94%, 49%)
+    }
+
+    t.ex8 {
+        margin-left: 10px;
+        color: hsl(300, 94%, 51%)
+    }
+
+    t.ex9 {
+        margin-left: 10px;
+        color: hsl(19, 98%, 38%)
+    }
+
+    t.ex10 {
+        margin-left: 10px;
+        color: hsl(140, 95%, 48%)
+    }
+
+    t.ex11 {
+        margin-left: 10px;
+        color: hsl(19, 98%, 38%)
+    }
+
+    t.ex12 {
+        margin-left: 10px;
+        color: hsl(66, 97%, 48%)
+    }
+
+    #myProgress {
+        width: 100%;
+        background-color: #ddd;
+    }
+
+    #myBar {
+        width: 1%;
+        height: 30px;
+        background-color: #4CAF50;
+    }
 </style>
--->
 
 <body>
-<div class="w3-container w3-margin-left w3-margin-right">
+    <!-- <div id="myProgress">
+        <div id="myBar">/</div>
+    </div> -->
 
-<h1 class="w3-panel w3-border-left w3-border-blue" style="color:#2196F3"> Crossings at one Tennis</h1>
+    <div class="w3-container w3-margin-left w3-margin-right">
 
-<button onclick="myAccordion('predef')" class="w3-btn w3-block w3-blue">
-Generate Random teams (Predefined list)</button>
-<!--
-<button onclick="shuffleUsingSortFunc(numberStrings);updateNumberList(numberStrings);">Shuffle Using Sort Function</button> -->
+        <h1 class="w3-panel w3-border-left w3-border-blue" style="color:#f321c6">Tennis</h1>
+        <div id="btnRefresh">
 
-<div id="predef" class="w3-hide w3-container">
-<br>
-<div id="chkboxgrp" class="w3-panel w3-leftbar w3-border-blue w3-pale-blue" style="width:100%;">
-<form class="w3-container">
-<input type="checkbox" checked="true" id="player1" name="player1" value="Bharat">
-<label for="player1"> Bharat</label><br>
-<input type="checkbox" checked="true" id="player2" name="player2" value="Sujith">
-<label for="player2"> Sujit</label><br>
-<input type="checkbox" checked="true" id="player3" name="player3" value="Raja">
-<label for="player3"> Raja</label><br> 
-<input type="checkbox" checked="true" id="player4" name="player4" value="Bhaskar">
-<label for="player4"> Bhaskar</label><br>
-<input type="checkbox" checked="true" id="player5" name="player5" value="Laxman">
-<label for="player5"> Laxman</label><br>
-<input type="checkbox" checked="true" id="player6" name="player6" value="Chandra">
-<label for="player6"> Chandra</label><br> 
-<input type="checkbox" checked="true" id="player7" name="player7" value="Suresh">
-<label for="player7"> Suresh</label><br>
-<input type="checkbox" checked="true" id="player8" name="player8" value="Ranga">
-<label for="player8"> Ranga</label><br>
-<input type="checkbox" checked="true" id="player9" name="player9" value="Balaji">
-<label for="player9"> Balaji</label><br> 
-<input type="checkbox" checked="true" id="player10" name="player10" value="Rahul">
-<label for="player10"> Rahul</label><br>
-<input type="checkbox" checked="true" id="player11" name="player11" value="C">
-<label for="player11"> C</label><br>
-<input type="checkbox" checked="true" id="player12" name="player12" value="Ryan">
-<label for="player12"> Ryan</label><br> 
-</form>
+            <button class="w3-btn w3-border-left" style="font-size:16px ; color: #04eb51" onclick="ReloadPage()">
+                Refresh <i class="fa fa-refresh"></i>
+
+            </button>
+            <br>
+        </div>
 
 
+        <button id="btnAcc" onclick="myAccordion('predef')" class="w3-btn w3-block w3-blue">
+            Select Players</button>
+        <!--
+    <button onclick="shuffleUsingSortFunc(numberStrings);updateNumberList(numberStrings);">Shuffle Using Sort Function</button> -->
 
-<br>
-<div id="chkboxact">
-<button class="w3-button w3-ripple w3-blue" onclick="checkAll();"> SelectAll</button>
-<button class="w3-button w3-ripple w3-blue" onclick="uncheckAll();"> DeselectAll</button>
-<br>
-</div>
+        <div id="predef" class="w3-hide w3-container">
+            <br>
+            <div id="chkboxgrp" class="w3-panel w3-leftbar w3-border-blue w3-pale-blue" style="width:100%;">
+                <form class="w3-container">
+                    <input type="checkbox" checked="true" id="player1" name="Players" value="Bharat">
+                    <label for="player1"> Bharat</label><br>
+                    <input type="checkbox" checked="true" id="player2" name="Players" value="Sujith">
+                    <label for="player2"> Sujit</label><br>
+                    <input type="checkbox" checked="true" id="player3" name="Players" value="Raja">
+                    <label for="player3"> Raja</label><br>
+                    <input type="checkbox" checked="true" id="player4" name="Players" value="Bhaskar">
+                    <label for="player4"> Bhaskar</label><br>
+                    <input type="checkbox" checked="true" id="player5" name="Players" value="Laxman">
+                    <label for="player5"> Laxman</label><br>
+                    <input type="checkbox" checked="true" id="player6" name="Players" value="Karuna">
+                    <label for="player6"> Karuna</label><br>
+                    <input type="checkbox" checked="true" id="player7" name="Players" value="Balaji">
+                    <label for="player7"> Balaji</label><br>
+                    <input type="checkbox" checked="true" id="player8" name="Players" value="Rahul">
+                    <label for="player8"> Rahul</label><br>
+                    <input type="checkbox" id="player9" name="Players" value="Guest 1">
+                    <label for="player9"> Guest 1</label><br>
+                    <input type="checkbox" id="player10" name="Players" value="Guest 2">
+                    <label for="player10"> Guest 2</label><br>
+                    <input type="checkbox" id="player11" name="Players" value="Guest 3">
+                    <label for="player11"> Guest 3</label><br>
+                    <input type="checkbox" id="player12" name="Players" value="Guest 4">
+                    <label for="player12"> Guest 4</label><br>
+                </form>
+                <br>
+                <div id="chkboxact">
+                    <button class="w3-button w3-ripple w3-blue" onclick="checkAll();"> SelectAll</button>
+                    <button class="w3-button w3-ripple w3-blue" onclick="uncheckAll();"> Clear</button>
+                    <br>
+                </div>
 
-<br>
-<button class="w3-button w3-ripple w3-blue" onclick="myfunction2('redefdiv');">Shuffle Selected</button>
-<br>
-</div>
-<div id="redefdiv"></div>
-</div>
+                <br>
+                <button class="w3-button w3-ripple w3-blue" onclick="myfunction2('redefdiv');">Shuffle Selected</button>
+                <br>
+            </div>
+            <div id="redefdiv"></div>
+        </div>
 
-<button onclick="myAccordion('custom')" class="w3-btn w3-block w3-blue">
-Generate Random teams (Custom list)</button>
-
-
-<div id="custom" class="w3-hide w3-container">
-<form class="w3-container">
-<label class="w3-text-blue" for="fname">Enter names separated by ",":</label><br>
-
-<input class="w3-input w3-border w3-round-large" type="text" id="fname" name="fname" style="width:100%;" value = "Bhaskar, Sujit, Laxman, Raj, Bharat, Chandra, Balaji, Ranga, Suresh, Rahul, C, R"></value><br>
-<button class="w3-btn w3-blue" onclick="myfunction('custdiv');">Shuffle Using Random Swapping</button>
-
-</form>
-<div id="custdiv"></div>
-</div>
-
-
-
-<button onclick="myAccordion('toss')" class="w3-btn w3-block w3-blue">
-Toss a coin</button>
-<!--
-<button onclick="shuffleUsingSortFunc(numberStrings);updateNumberList(numberStrings);">Shuffle Using Sort Function</button> -->
-
-<div id="toss" class="w3-hide w3-container">
-
-<!--<img name="coin" src="https://thumbs.gfycat.com/SneakyHastyAmethystinepython-size_restricted.gif"> -->
-<img name="coin" src="">
-<form action="" onSubmit="return toss();">
-    <input class="w3-btn w3-blue" type="submit" value="TOSS">
-    </form>
-
-
-</div>
-
-
-
-<script>
-
-function toss() {
-
-if (Math.random()>.5) {
-window.document.coin.src = "https://thumbs.gfycat.com/SneakyHastyAmethystinepython-size_restricted.gif";
-window.document.coin.src = "https://qph.fs.quoracdn.net/main-qimg-4eca277d4d60d039c28210b3325473ff";
-}
-else {
-window.document.coin.src = "https://thumbs.gfycat.com/SneakyHastyAmethystinepython-size_restricted.gif";
-window.document.coin.src = "https://qph.fs.quoracdn.net/main-qimg-2bd4af47bf2b57da08058cef3d8553e8";
-}
-return false;
-}
+        <!-- <button onclick="myAccordion('custom')" class="w3-btn w3-block w3-blue">
+            Generate Random teams (Custom list)</button> -->
 
 
-function myAccordion(id) {
+        <!-- <div id="custom" class="w3-hide w3-container">
+            <form class="w3-container">
+                <label class="w3-text-blue" for="fname">Enter names separated by ",":</label><br>
 
-  var x = document.getElementById(id);
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
+                <input class="w3-input w3-border w3-round-large" type="text" id="fname" name="fname" style="width:100%;"
+                    value="Bhaskar, Sujit, Laxman, Raj, Bharat, Karuna, Balaji, Rahul, Balaji, Rahul, C, R"></value>
+                <br>
+                <button class="w3-btn w3-blue" onclick="myfunction('custdiv');">Shuffle Using Random Swapping</button>
 
-function myfunction2(id){
-var i=1;
-var players = [];
-for(i=1; i<=12; i++){
-
-	if (document.getElementById("player"+i).checked){
-var x = document.getElementById("player"+i).value; 
-//alert("printing: "+x);
-players.push(x);
-}
-}
-  shuffleUsingRandomSwapping(players)
-
-  updateNumberList(players,id);
-
-}
+            </form>
+            <div id="custdiv"></div>
+        </div> -->
 
 
-function myfunction(id){
-
-var str = document.getElementById("fname").value;
-
-var numberStrings = str.split(","); 
-// document.getElementById("chkboxgrp").innerHTML=" ";
-  shuffleUsingRandomSwapping(numberStrings)
-
-  updateNumberList(numberStrings,id);
-
-}
-
-function checkAll(boolean) {
-var i=1;
-
-for(i=1; i<=12; i++){
+        <!-- <button onclick="myAccordion('toss')" class="w3-btn w3-block w3-blue">
+            Toss a coin</button>
+       
     
-	
-	document.getElementById("player"+i).checked = true;
-	
-	}
-}
 
-function uncheckAll() {
-var i=1;
+        <div id="toss" class="w3-hide w3-container">
 
-for(i=1; i<=12; i++){
-    
-	
-	document.getElementById("player"+i).checked = false;
-	
-	}
-} 
+            
+            <img name="coin" src="">
+            <form action="" onSubmit="return toss();">
+                <input class="w3-btn w3-blue" type="submit" value="TOSS">
+            </form>
 
 
+        </div> -->
 
-function updateNumberList(array,id){
+        <script>
 
-  var s="";
-  s+="<br>";
-var t=1;
-  for(var i=0;i<array.length;i++){
-var j=i+1;
+            // function toss() {
 
-if (j%4 == 1){
+            //     if (Math.random() > .5) {
+            //         window.document.coin.src = "https://thumbs.gfycat.com/SneakyHastyAmethystinepython-size_restricted.gif";
+            //         window.document.coin.src = "https://qph.fs.quoracdn.net/main-qimg-4eca277d4d60d039c28210b3325473ff";
+            //     }
+            //     else {
+            //         window.document.coin.src = "https://thumbs.gfycat.com/SneakyHastyAmethystinepython-size_restricted.gif";
+            //         window.document.coin.src = "https://qph.fs.quoracdn.net/main-qimg-2bd4af47bf2b57da08058cef3d8553e8";
+            //     }
+            //     return false;
+            // }
+            function ReloadPage() {
+                location.reload();
+            }
 
-s+=" <div class=\"w3-card w4\" style=\"width:100%;\">  <header class=\"w3-container w3-blue\"> <b>Group " + t + "</header> </b><br>";
-t=t+1;
-}
-    s+="<br>"+j+". "+array[i] ;
-if ( j%2 == 0 )
-{
-s+="<br>"
-}
-if ( j%4 == 0 )
-{
-s+="<footer class=\"w3-container w3-blue\"> <h5> </h5>    </footer></div><br>"
-}
-  }
+            function myAccordion(id) {
 
+                var x = document.getElementById(id);
+                if (x.className.indexOf("w3-show") == -1) {
+                    x.className += " w3-show";
+                } else {
+                    x.className = x.className.replace(" w3-show", "");
+                }
+            }
 
-  document.getElementById(id).innerHTML=s;
+            function myfunction2(id) {
+                var i = 1;
+                var players = [];
+                var shuffledPlayers = [];
 
-}
+                var ar = document.getElementsByName("Players").length;
 
+                for (i = 1; i <= ar; i++) {
+                    x = randomStr(20, 'abcd98765');
+                    document.getElementById("player" + i).id = x;
 
+                    if (document.getElementById(x).checked) {
 
-function shuffleUsingRandomSwapping(array){
+                        var x = document.getElementById(x).id;
+                        // alert("printing value: "+x);
+                        var y = document.getElementsByName(x);
+                        // alert("printing ElementByName: "+y[1]);
+                        players.push(x);
+                    }
 
-//  var str = document.getElementById("fname").value;
+                    // for (i = 1; i <= 12; i++) {
+                    //     x = randomStr(20, 'abcd98765');
+                    //     document.getElementById("player" + i).id = x;
 
-//var numberStrings = str.split(","); 
+                    //     if (document.getElementById(x).checked) {
 
-  var j,x,i=0,len=array.length;
-
-  for(i;i<len;i++){
-
-    j=Math.floor(Math.random()*len);
-
-    x=array[i];
-
-    array[i]=array[j];
-
-    array[j]=x;
-
-  }
-
-}
-
-
-
-function shuffleUsingSortFunc(array){
-
-  array.sort(function(){
-
-    return 0.5-Math.random();
-
-  });
-
-}
-
-</script>
+                    //         var x = document.getElementById(x).id;
+                    //         // alert("printing value: "+x);
+                    //         var y = document.getElementsByName(x);
+                    //         // alert("printing ElementByName: "+y[1]);
+                    //         players.push(x);
+                    //     }
+                }
 
 
-</div>
+                updateNumberList(shuffleUsingRandomSwapping(players), id);
+                hideSection()
+            }
+
+            function hideSection() {
+                var x = document.getElementById("chkboxgrp");
+                // x.style.display = "none";
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
+                document.getElementById("btnRefresh").style.display = "block";
+                document.getElementById("btnAcc").innerHTML = "Here are the results:";
+            }
+
+            function updateNumberList(array, id) {
+
+                var s = "";
+                // s += "<br>";
+                var t = 1;
+                for (var i = 0; i < array.length; i++) {
+
+                    // alert("Printing Name: " + document.getElementById;
+                    var j = i + 1;
+
+                    if (j % 4 == 1) {
+
+                        s += " <br> <div class=\"w3-card w4\" style=\"width:100%;\">  <header class=\"w3-container w3-blue\"> <b>Court " + t + "</header> </b>";
+                        t = t + 1;
+                    }
+                    s += "<br><t class=ex" + j + ">" + j + ". " + document.getElementById(array[i]).value + "</t>";
+                    if (j % 2 == 0) {
+                        s += "<br>"
+                    }
+                    if (j % 4 == 0) {
+                        s += "<br><footer class=\"w3-container w3-blue\"> <h5> </h5>    </footer></div>"
+                    }
+                }
+
+
+                document.getElementById(id).innerHTML = s;
+
+            }
+          
+
+            function checkAll(boolean) {
+                var i = 1;
+
+                for (i = 1; i <= 12; i++) {
+
+
+                    document.getElementById("player" + i).checked = true;
+
+                }
+            }
+
+            function uncheckAll() {
+                var i = 1;
+
+                for (i = 1; i <= 12; i++) {
+
+
+                    document.getElementById("player" + i).checked = false;
+
+                }
+            }
+
+
+
+
+            function randomStr(len, arr) {
+                var ans = '';
+                for (var i = len; i > 0; i--) {
+                    ans +=
+                        arr[Math.floor(Math.random() * arr.length)];
+                }
+                return ans;
+            }
+
+
+            function shuffleUsingRandomSwapping(array) {
+
+                //  var str = document.getElementById("fname").value;
+
+                //var numberStrings = str.split(","); 
+
+                var j, x, i = 0, len = array.length;
+
+                for (i; i < len; i++) {
+
+                    j = Math.floor(Math.random() * len);
+
+                    x = array[i];
+
+                    array[i] = array[j];
+
+                    array[j] = x;
+                    // alert(x);
+
+                }
+                return array;
+            }
+
+
+
+            function shuffleUsingSortFunc(array) {
+
+                array.sort(function () {
+
+                    return 0.5 - Math.random();
+
+                });
+
+            }
+
+        </script>
+
+
+    </div>
 </body>
 
 </html>
